@@ -32,7 +32,7 @@
   },
   "dependencies": {
     "prop-types": "^15.7.2",
-    "react-native-modal": "^9.0.0"
+    "react-native-modal": "6.5.0"
   },
   "devDependencies": {
     "eslint": "^5.16.0",
