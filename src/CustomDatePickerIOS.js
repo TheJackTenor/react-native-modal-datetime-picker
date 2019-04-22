@@ -8,6 +8,7 @@ import {
   View
 } from "react-native";
 import ReactNativeModal from "react-native-modal";
+import UncontrolledDatePickerIOS from 'react-native-uncontrolled-date-picker-ios';
 import { isIphoneX } from "./utils";
 
 export default class CustomDatePickerIOS extends React.PureComponent {
@@ -171,7 +172,7 @@ export default class CustomDatePickerIOS extends React.PureComponent {
     const cancelButton = (
       <Text style={[styles.cancelText, cancelTextStyle]}>{cancelTextIOS}</Text>
     );
-    const DatePickerComponent = customDatePickerIOS || DatePickerIOS;
+    const DatePickerComponent = customDatePickerIOS || UncontrolledDatePickerIOS;
 
     return (
       <ReactNativeModal

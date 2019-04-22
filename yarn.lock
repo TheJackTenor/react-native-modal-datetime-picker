@@ -3914,7 +3914,7 @@ promise@^7.1.1:
   dependencies:
     asap "~2.0.3"
 
-prop-types@^15.5.10, prop-types@^15.5.8, prop-types@^15.6.2, prop-types@^15.7.2:
+prop-types@*, prop-types@^15.5.10, prop-types@^15.5.8, prop-types@^15.6.1, prop-types@^15.6.2, prop-types@^15.7.2:
   version "15.7.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
   integrity sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ==
@@ -3995,13 +3995,20 @@ react-native-animatable@^1.2.4:
   dependencies:
     prop-types "^15.5.10"
 
-react-native-modal@^9.0.0:
-  version "9.0.0"
-  resolved "https://registry.yarnpkg.com/react-native-modal/-/react-native-modal-9.0.0.tgz#0bfd0770361a2e5c6e0072bfdb0f1277f9662dba"
-  integrity sha512-j4xeIK9noHU/ksp2Ndc8NI1qJvjApToqGvqLEu2wtYeaISanbhtd0S3V4hZkSlCa3DZtegl6aaMZBLeH1q6xfA==
+react-native-modal@6.5.0:
+  version "6.5.0"
+  resolved "https://registry.yarnpkg.com/react-native-modal/-/react-native-modal-6.5.0.tgz#46220b2289a41597d344c1db17454611b426a758"
+  integrity sha512-ewchdETAGd32xLGLK93NETEGkRcePtN7ZwjmLSQnNW1Zd0SRUYE8NqftjamPyfKvK0i2DZjX4YAghGZTqaRUbA==
   dependencies:
-    prop-types "^15.6.2"
+    prop-types "^15.6.1"
     react-native-animatable "^1.2.4"
+
+react-native-uncontrolled-date-picker-ios@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/react-native-uncontrolled-date-picker-ios/-/react-native-uncontrolled-date-picker-ios-1.0.0.tgz#f4c04335538fdb0b5e412fb7df3e471df55538ef"
+  integrity sha512-dqXEwGOM658Zp0Lco1lboqvHY0DdurIScq/7Doh85jSXGwLXDObT+uCgfTiDldbHPe96NMRcFweF/gC9b0WWbA==
+  dependencies:
+    prop-types "*"
 
 react-native@>=0.24.0:
   version "0.59.5"
