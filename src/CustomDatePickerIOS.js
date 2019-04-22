@@ -1,14 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
-import {
-  DatePickerIOS,
-  StyleSheet,
-  Text,
-  TouchableHighlight,
-  View
-} from "react-native";
+import { StyleSheet, Text, TouchableHighlight, View } from "react-native";
 import ReactNativeModal from "react-native-modal";
-import UncontrolledDatePickerIOS from 'react-native-uncontrolled-date-picker-ios';
+import UncontrolledDatePickerIOS from "react-native-uncontrolled-date-picker-ios";
 import { isIphoneX } from "./utils";
 
 export default class CustomDatePickerIOS extends React.PureComponent {
@@ -74,9 +68,16 @@ export default class CustomDatePickerIOS extends React.PureComponent {
   };
 
   handleConfirm = () => {
-    this.confirmed = true;
-    this.props.onConfirm(this.state.date);
-    this.resetDate();
+    this.datepicker.getDate(date => {
+      this.setState({
+        date,
+        userIsInteractingWithPicker: false
+      });
+      this.props.onDateChange(date);
+      this.confirmed = true;
+      this.props.onConfirm(this.state.date);
+      this.resetDate();
+    });
   };
 
   resetDate = () => {
@@ -172,8 +173,8 @@ export default class CustomDatePickerIOS extends React.PureComponent {
     const cancelButton = (
       <Text style={[styles.cancelText, cancelTextStyle]}>{cancelTextIOS}</Text>
     );
-    const DatePickerComponent = customDatePickerIOS || UncontrolledDatePickerIOS;
-
+    const DatePickerComponent =
+      customDatePickerIOS || UncontrolledDatePickerIOS;
     return (
       <ReactNativeModal
         isVisible={isVisible}
@@ -192,21 +193,22 @@ export default class CustomDatePickerIOS extends React.PureComponent {
             }
           >
             <DatePickerComponent
-              ref={pickerRefCb}
+              ref={x => {
+                this.datepicker = x;
+              }}
               mode={mode}
               minuteInterval={this.state.minuteInterval}
               {...otherProps}
               date={this.state.date}
-              onDateChange={this.handleDateChange}
             />
           </View>
           <TouchableHighlight
             style={styles.confirmButton}
             underlayColor={HIGHLIGHT_COLOR}
             onPress={this.handleConfirm}
-            disabled={
-              !neverDisableConfirmIOS && this.state.userIsInteractingWithPicker
-            }
+            // disabled={
+            //   !neverDisableConfirmIOS && this.state.userIsInteractingWithPicker
+            // }
           >
             {confirmButton}
           </TouchableHighlight>
